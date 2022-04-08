@@ -19548,16 +19548,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["id"],
   emits: ['closeForm', 'submitted'],
   setup: function setup(props, _ref) {
     var emit = _ref.emit;
     var formData = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      firstName: 'Mark',
+      firstName: 'Gold',
       lastName: 'Doe',
-      position: 'Accounting',
-      sickLeaveCredits: 4,
-      vacationLeaveCredits: 4,
-      hourlyRate: 1200
+      position: 'Treasurer',
+      sickLeaveCredits: 5,
+      vacationLeaveCredits: 5,
+      hourlyRate: 200
     });
 
     var closeModal = function closeModal() {
@@ -19566,6 +19567,56 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     function handleSubmit() {
       emit('submitted', new FormData(employeeform));
+    }
+
+    return _objectSpread(_objectSpread({}, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toRefs)(formData)), {}, {
+      handleSubmit: handleSubmit,
+      closeModal: closeModal
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EmployeeEdit.vue?vue&type=script&lang=js":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EmployeeEdit.vue?vue&type=script&lang=js ***!
+  \******************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["employee"],
+  emits: ['closeForm', 'submitted'],
+  setup: function setup(props, _ref) {
+    var emit = _ref.emit;
+    var formData = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
+      firstName: props.employee.firstName,
+      lastName: props.employee.lastName,
+      position: props.employee.position,
+      sickLeaveCredits: props.employee.sickLeaveCredits,
+      vacationLeaveCredits: props.employee.vacationLeaveCredits,
+      hourlyRate: props.employee.hourlyRate
+    });
+
+    var closeModal = function closeModal() {
+      emit('closeForm', props.employee.id);
+    };
+
+    function handleSubmit() {
+      emit('submitted', props.employee.id, new FormData(employeeform));
     }
 
     return _objectSpread(_objectSpread({}, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toRefs)(formData)), {}, {
@@ -19610,6 +19661,33 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/views/EmployeeLogView.vue?vue&type=script&lang=js":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/views/EmployeeLogView.vue?vue&type=script&lang=js ***!
+  \***************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["id"],
+  setup: function setup() {
+    var timein = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(new Date());
+    var timeout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)("2022-06-12T19:30");
+    return {
+      timein: timein,
+      timeout: timeout
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/views/EmployeeView.vue?vue&type=script&lang=js":
 /*!************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/views/EmployeeView.vue?vue&type=script&lang=js ***!
@@ -19624,8 +19702,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _EmployeeAdd_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../EmployeeAdd.vue */ "./resources/js/components/EmployeeAdd.vue");
-/* harmony import */ var _composables_useEmployee__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../composables/useEmployee */ "./resources/js/composables/useEmployee.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _EmployeeEdit_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../EmployeeEdit.vue */ "./resources/js/components/EmployeeEdit.vue");
+/* harmony import */ var _composables_useEmployee__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../composables/useEmployee */ "./resources/js/composables/useEmployee.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -19635,19 +19714,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    EmployeeAdd: _EmployeeAdd_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    EmployeeAdd: _EmployeeAdd_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    EmployeeEdit: _EmployeeEdit_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   setup: function setup() {
-    var _useEmployee = (0,_composables_useEmployee__WEBPACK_IMPORTED_MODULE_2__["default"])(),
+    var _useEmployee = (0,_composables_useEmployee__WEBPACK_IMPORTED_MODULE_3__["default"])(),
         employees = _useEmployee.employees,
         getEmployees = _useEmployee.getEmployees,
+        employee = _useEmployee.employee,
+        getEmployee = _useEmployee.getEmployee,
         saveEmployee = _useEmployee.saveEmployee,
+        updateEmployee = _useEmployee.updateEmployee,
         deleteEmployee = _useEmployee.deleteEmployee;
 
-    var showEmpAddForm = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)(false);
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(function () {
+    var showEmpAddForm = (0,vue__WEBPACK_IMPORTED_MODULE_4__.ref)(false);
+    var showEmpEditForm = (0,vue__WEBPACK_IMPORTED_MODULE_4__.ref)(false);
+    (0,vue__WEBPACK_IMPORTED_MODULE_4__.onMounted)(function () {
       getEmployees();
     });
 
@@ -19655,21 +19740,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       showEmpAddForm.value = !showEmpAddForm.value;
     };
 
-    var addEmployee = /*#__PURE__*/function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(formData) {
+    var toggleEmpEditForm = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(id) {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return saveEmployee(formData);
+                return getEmployee(id);
 
               case 2:
-                alert("Employee Added!");
-                getEmployees();
-                toggleEmpAddForm();
+                showEmpEditForm.value = !showEmpEditForm.value;
 
-              case 5:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -19677,27 +19760,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }));
 
-      return function addEmployee(_x) {
+      return function toggleEmpEditForm(_x) {
         return _ref.apply(this, arguments);
       };
     }();
 
-    var editEmployee = function editEmployee(id) {
-      console.log(id);
-    };
-
-    var removeEmployee = /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(id) {
+    var addEmployee = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(formData) {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return deleteEmployee(id);
+                return saveEmployee(formData);
 
               case 2:
-                alert("Employee removed");
                 getEmployees();
+                toggleEmpAddForm();
 
               case 4:
               case "end":
@@ -19707,15 +19786,66 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2);
       }));
 
-      return function removeEmployee(_x2) {
+      return function addEmployee(_x2) {
         return _ref2.apply(this, arguments);
       };
     }();
 
+    var editEmployee = /*#__PURE__*/function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(id, formData) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return updateEmployee(id, formData);
+
+              case 2:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }));
+
+      return function editEmployee(_x3, _x4) {
+        return _ref3.apply(this, arguments);
+      };
+    }();
+
+    var removeEmployee = /*#__PURE__*/function () {
+      var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(id) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return deleteEmployee(id);
+
+              case 2:
+                alert("Employee removed");
+                getEmployees();
+
+              case 4:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }));
+
+      return function removeEmployee(_x5) {
+        return _ref4.apply(this, arguments);
+      };
+    }();
+
     return {
-      employees: employees,
       toggleEmpAddForm: toggleEmpAddForm,
       showEmpAddForm: showEmpAddForm,
+      toggleEmpEditForm: toggleEmpEditForm,
+      showEmpEditForm: showEmpEditForm,
+      employees: employees,
+      employee: employee,
       addEmployee: addEmployee,
       editEmployee: editEmployee,
       removeEmployee: removeEmployee
@@ -19839,7 +19969,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.position]]), _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
+    type: "number",
     name: "sickLeaveCredits",
     required: "",
     "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
@@ -19848,7 +19978,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.sickLeaveCredits]]), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
+    type: "number",
     name: "vacationLeaveCredits",
     required: "",
     "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
@@ -19857,7 +19987,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.vacationLeaveCredits]]), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
+    type: "number",
     name: "hourlyRate",
     required: "",
     "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
@@ -19869,6 +19999,142 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[6] || (_cache[6] = function () {
       return $setup.closeModal && $setup.closeModal.apply($setup, arguments);
     }),
+    type: "button",
+    value: "Cancel"
+  })])], 32
+  /* HYDRATE_EVENTS */
+  )])]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EmployeeEdit.vue?vue&type=template&id=158389c3":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EmployeeEdit.vue?vue&type=template&id=158389c3 ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "modal"
+};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, " Edit Employee Details ", -1
+/* HOISTED */
+);
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, " First name: ", -1
+/* HOISTED */
+);
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, " Last name: ", -1
+/* HOISTED */
+);
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, " Position: ", -1
+/* HOISTED */
+);
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, " Sick leave credits: ", -1
+/* HOISTED */
+);
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, " Vacation Leave Credits: ", -1
+/* HOISTED */
+);
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, " Hourly Rate: ", -1
+/* HOISTED */
+);
+
+var _hoisted_9 = {
+  "class": "employee-form-btn-wrapper"
+};
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  type: "submit",
+  value: "Update"
+}, null, -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    onClick: _cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $setup.closeModal && $setup.closeModal.apply($setup, arguments);
+    }, ["self", "prevent"])),
+    "class": "backdrop"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    onSubmit: _cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $setup.handleSubmit && $setup.handleSubmit.apply($setup, arguments);
+    }, ["prevent"])),
+    action: "post",
+    "class": "employee-add-form",
+    id: "employeeform"
+  }, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    name: "firstName",
+    required: "",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return _ctx.firstName = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.firstName]]), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    name: "lastName",
+    required: "",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return _ctx.lastName = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.lastName]]), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    name: "position",
+    required: "",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return _ctx.position = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.position]]), _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "number",
+    name: "sickLeaveCredits",
+    required: "",
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return _ctx.sickLeaveCredits = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.sickLeaveCredits]]), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "number",
+    name: "vacationLeaveCredits",
+    required: "",
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return _ctx.vacationLeaveCredits = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.vacationLeaveCredits]]), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "number",
+    name: "hourlyRate",
+    required: "",
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+      return _ctx.hourlyRate = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.hourlyRate]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    onClick: _cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $setup.closeModal && $setup.closeModal.apply($setup, arguments);
+    }, ["prevent"])),
     type: "button",
     value: "Cancel"
   })])], 32
@@ -19895,9 +20161,9 @@ var _hoisted_1 = {
   "class": "employee-details"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", {
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   colspan: "7"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, " Employee Detail ")])], -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, " Employee Detail ")])], -1
 /* HOISTED */
 );
 
@@ -19908,8 +20174,11 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_4 = {
   key: 0
 };
+var _hoisted_5 = {
+  colspan: "7"
+};
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "btn-process"
 }, " Return to Employees List ", -1
 /* HOISTED */
@@ -19932,18 +20201,68 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.employee.hourlyRate), 1
   /* TEXT */
-  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
       name: 'employee'
     }
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_5];
+      return [_hoisted_6];
     }),
     _: 1
     /* STABLE */
 
   })])])])]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/views/EmployeeLogView.vue?vue&type=template&id=22633502":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/views/EmployeeLogView.vue?vue&type=template&id=22633502 ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  colspan: "5"
+}, "Employee Attendance Log")], -1
+/* HOISTED */
+);
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, " Time in: "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, " Time Out: ")], -1
+/* HOISTED */
+);
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+  colspan: "2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", null, " Register Time-in and Time-Out")])], -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("table", null, [_hoisted_1, _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "datetime-local",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $setup.timein = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.timein]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "datetime-local",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $setup.timeout = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.timeout]])])]), _hoisted_3]);
 }
 
 /***/ }),
@@ -19971,7 +20290,7 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "First Name"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Last Name"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Position"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "First Name"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Sick Leave Credits"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Vacation Leave Credits"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Hourly rate"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "First Name"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Last Name"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Position"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Sick Leave Credits"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Vacation Leave Credits"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Hourly rate"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   colspan: "3"
 }, "Actions")], -1
 /* HOISTED */
@@ -20007,10 +20326,15 @@ var _hoisted_11 = {
 var _hoisted_12 = {
   key: 0
 };
+var _hoisted_13 = {
+  key: 1
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
   var _component_EmployeeAdd = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("EmployeeAdd");
+
+  var _component_EmployeeEdit = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("EmployeeEdit");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", null, [_hoisted_2, _hoisted_3, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.employees, function (employee) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
@@ -20020,8 +20344,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(employee.lastName), 1
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(employee.position), 1
-    /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(employee.firstName), 1
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(employee.sickLeaveCredits), 1
     /* TEXT */
@@ -20047,7 +20369,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* PROPS, DYNAMIC_SLOTS */
     , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
       onClick: function onClick($event) {
-        return $setup.editEmployee(employee.id);
+        return $setup.toggleEmpEditForm(employee.id);
       }
     }, _hoisted_7, 8
     /* PROPS */
@@ -20070,7 +20392,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onCloseForm: $setup.toggleEmpAddForm
   }, null, 8
   /* PROPS */
-  , ["onSubmitted", "onCloseForm"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+  , ["onSubmitted", "onCloseForm"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.showEmpEditForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_EmployeeEdit, {
+    employee: $setup.employee,
+    onSubmitted: $setup.editEmployee,
+    onCloseForm: $setup.toggleEmpEditForm
+  }, null, 8
+  /* PROPS */
+  , ["employee", "onSubmitted", "onCloseForm"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
 }
 
 /***/ }),
@@ -20229,21 +20557,20 @@ function useEmployee() {
             case 3:
               response = _context.sent;
               employees.value = response.data.data;
-              console.log(employees.value);
-              _context.next = 11;
+              _context.next = 10;
               break;
 
-            case 8:
-              _context.prev = 8;
+            case 7:
+              _context.prev = 7;
               _context.t0 = _context["catch"](0);
               console.log(_context.t0.response.data);
 
-            case 11:
+            case 10:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[0, 8]]);
+      }, _callee, null, [[0, 7]]);
     }));
 
     return function getEmployees() {
@@ -20271,7 +20598,7 @@ function useEmployee() {
             case 7:
               _context2.prev = 7;
               _context2.t0 = _context2["catch"](0);
-              console.log(err.response.data);
+              console.log(_context2.t0.response.data);
 
             case 10:
             case "end":
@@ -20299,19 +20626,22 @@ function useEmployee() {
 
             case 3:
               response = _context3.sent;
+              alert("Added Employee!");
+              getEmployees();
               return _context3.abrupt("return", response.data.data);
 
-            case 7:
-              _context3.prev = 7;
+            case 9:
+              _context3.prev = 9;
               _context3.t0 = _context3["catch"](0);
+              alert("Employee already has a record in the database.");
               console.log(_context3.t0.response.data);
 
-            case 10:
+            case 13:
             case "end":
               return _context3.stop();
           }
         }
-      }, _callee3, null, [[0, 7]]);
+      }, _callee3, null, [[0, 9]]);
     }));
 
     return function saveEmployee(_x2) {
@@ -20319,36 +20649,76 @@ function useEmployee() {
     };
   }();
 
-  var deleteEmployee = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(id) {
-      var response;
+  var updateEmployee = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(id, formData) {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
               _context4.prev = 0;
               _context4.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]("/api/management/employee/" + id);
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().put("/api/management/employee/" + id, {
+                firstName: formData.get('firstName'),
+                lastName: formData.get('lastName'),
+                position: formData.get('position'),
+                sickLeaveCredits: formData.get('sickLeaveCredits'),
+                vacationLeaveCredits: formData.get('vacationLeaveCredits'),
+                hourlyRate: formData.get('hourlyRate')
+              });
 
             case 3:
-              response = _context4.sent;
-              return _context4.abrupt("return", response.data.data);
+              _context4.next = 8;
+              break;
 
-            case 7:
-              _context4.prev = 7;
+            case 5:
+              _context4.prev = 5;
               _context4.t0 = _context4["catch"](0);
               console.log(_context4.t0.response.data);
 
-            case 10:
+            case 8:
             case "end":
               return _context4.stop();
           }
         }
-      }, _callee4, null, [[0, 7]]);
+      }, _callee4, null, [[0, 5]]);
     }));
 
-    return function deleteEmployee(_x3) {
+    return function updateEmployee(_x3, _x4) {
       return _ref4.apply(this, arguments);
+    };
+  }();
+
+  var deleteEmployee = /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(id) {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]("/api/management/employee/" + id);
+
+            case 3:
+              response = _context5.sent;
+              getEmployees();
+              return _context5.abrupt("return", response.data.data);
+
+            case 8:
+              _context5.prev = 8;
+              _context5.t0 = _context5["catch"](0);
+              console.log(_context5.t0.response.data);
+
+            case 11:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 8]]);
+    }));
+
+    return function deleteEmployee(_x5) {
+      return _ref5.apply(this, arguments);
     };
   }();
 
@@ -20358,6 +20728,7 @@ function useEmployee() {
     employee: employee,
     getEmployee: getEmployee,
     saveEmployee: saveEmployee,
+    updateEmployee: updateEmployee,
     deleteEmployee: deleteEmployee
   };
 }
@@ -20377,11 +20748,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
 /* harmony import */ var _components_views_HomeView_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/views/HomeView.vue */ "./resources/js/components/views/HomeView.vue");
 /* harmony import */ var _components_views_EmployeeView_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/views/EmployeeView.vue */ "./resources/js/components/views/EmployeeView.vue");
 /* harmony import */ var _components_views_EmployeeDetailView_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/views/EmployeeDetailView.vue */ "./resources/js/components/views/EmployeeDetailView.vue");
+/* harmony import */ var _components_views_EmployeeLogView_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/views/EmployeeLogView.vue */ "./resources/js/components/views/EmployeeLogView.vue");
 /* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
+
 
 
 
@@ -20399,9 +20772,14 @@ var routes = [{
   path: '/management/employee',
   name: 'employee',
   component: _components_views_EmployeeView_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+}, {
+  path: '/management/employee/:id/log',
+  name: 'employee-log',
+  component: _components_views_EmployeeLogView_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+  props: true
 }];
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue_router__WEBPACK_IMPORTED_MODULE_3__.createRouter)({
-  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_3__.createWebHistory)(process.env.BASE_URL),
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue_router__WEBPACK_IMPORTED_MODULE_4__.createRouter)({
+  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_4__.createWebHistory)(process.env.BASE_URL),
   routes: routes
 }));
 
@@ -20424,7 +20802,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.modal {\n        width: 400px;\n        padding: 20px;\n        margin: 100px auto;\n        background: white;\n        border-radius: 10px;\n}\n.backdrop {\n        top: 0;\n        position: fixed;\n        background: rgba(0, 0, 0, 0.5);\n        width: 100%;\n        height: 100%;\n}\n.employee-add-form{\n        display: flex;\n        flex-direction: column;\n}\n.employee-add-form > input[type=\"text\"]{\n        height: 1.4rem;\n        border-radius: 10px;\n}\n.employee-form-btn-wrapper{\n        display: flex;\n        justify-content: space-evenly;\n        margin-top: 10px;\n}\ninput[value=\"Add\"]{\n        padding: 1.4rem;\n        background-color: var(--process-button);\n        border-radius: 10px;\n}\ninput[value=\"Cancel\"]{\n        padding: 1.4rem;\n        background-color: var(--hot-button);\n        border-radius: 10px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.modal {\n        width: 400px;\n        padding: 20px;\n        margin: 100px auto;\n        background: white;\n        border-radius: 10px;\n}\n.backdrop {\n        top: 0;\n        position: fixed;\n        background: rgba(0, 0, 0, 0.5);\n        width: 100%;\n        height: 100%;\n}\n.employee-add-form{\n        display: flex;\n        flex-direction: column;\n}\n.employee-add-form > input[type=\"text\"] .employee-add-form > input[type=\"number\"]{\n        height: 1.4rem;\n        border-radius: 10px;\n}\n.employee-form-btn-wrapper{\n        display: flex;\n        justify-content: space-evenly;\n        margin-top: 10px;\n}\ninput[value=\"Add\"], input[value=\"Update\"]{\n        padding: 1.4rem;\n        background-color: var(--process-button);\n        border-radius: 10px;\n}\ninput[value=\"Cancel\"]{\n        padding: 1.4rem;\n        background-color: var(--hot-button);\n        border-radius: 10px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20448,7 +20826,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ntable{\n        margin: 0;\n        margin: 0 auto;\n        border: 1px solid black;\n}\ntd, th, h2 {\n        text-align: center;\n        border: 1px solid black;\n        padding: 10px;\n}\n.act-button{\n        padding: 7px, 5px;\n        margin: 0 10px;\n        font-weight: bold;\n        text-decoration: none;\n        color: white;\n}\n.btn-process{\n        background: var(--process-button);\n}\n.btn-hot{\n        background: var(--hot-button);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ntable{\n        margin: 0;\n        margin: 0 auto;\n        border: 1px solid black;\n}\ntd, th {\n        text-align: center;\n        border: 1px solid black;\n        padding: 10px;\n}\n.act-button{\n        padding: 7px, 5px;\n        margin: 0 10px;\n        font-weight: bold;\n        text-decoration: none;\n        color: white;\n}\n.btn-process{\n        background: var(--process-button);\n}\n.btn-hot{\n        background: var(--hot-button);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -39160,6 +39538,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/components/EmployeeEdit.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/EmployeeEdit.vue ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _EmployeeEdit_vue_vue_type_template_id_158389c3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EmployeeEdit.vue?vue&type=template&id=158389c3 */ "./resources/js/components/EmployeeEdit.vue?vue&type=template&id=158389c3");
+/* harmony import */ var _EmployeeEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EmployeeEdit.vue?vue&type=script&lang=js */ "./resources/js/components/EmployeeEdit.vue?vue&type=script&lang=js");
+/* harmony import */ var _workspace_ircite_mcc_ircite_mcc_v1_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,_workspace_ircite_mcc_ircite_mcc_v1_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_EmployeeEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_EmployeeEdit_vue_vue_type_template_id_158389c3__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/EmployeeEdit.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/components/views/EmployeeDetailView.vue":
 /*!**************************************************************!*\
   !*** ./resources/js/components/views/EmployeeDetailView.vue ***!
@@ -39180,6 +39586,34 @@ __webpack_require__.r(__webpack_exports__);
 
 ;
 const __exports__ = /*#__PURE__*/(0,_workspace_ircite_mcc_ircite_mcc_v1_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_EmployeeDetailView_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_EmployeeDetailView_vue_vue_type_template_id_4c4c3a10__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/views/EmployeeDetailView.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/components/views/EmployeeLogView.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/views/EmployeeLogView.vue ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _EmployeeLogView_vue_vue_type_template_id_22633502__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EmployeeLogView.vue?vue&type=template&id=22633502 */ "./resources/js/components/views/EmployeeLogView.vue?vue&type=template&id=22633502");
+/* harmony import */ var _EmployeeLogView_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EmployeeLogView.vue?vue&type=script&lang=js */ "./resources/js/components/views/EmployeeLogView.vue?vue&type=script&lang=js");
+/* harmony import */ var _workspace_ircite_mcc_ircite_mcc_v1_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,_workspace_ircite_mcc_ircite_mcc_v1_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_EmployeeLogView_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_EmployeeLogView_vue_vue_type_template_id_22633502__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/views/EmployeeLogView.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -39292,6 +39726,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/EmployeeEdit.vue?vue&type=script&lang=js":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/EmployeeEdit.vue?vue&type=script&lang=js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EmployeeEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EmployeeEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./EmployeeEdit.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EmployeeEdit.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/components/views/EmployeeDetailView.vue?vue&type=script&lang=js":
 /*!**************************************************************************************!*\
   !*** ./resources/js/components/views/EmployeeDetailView.vue?vue&type=script&lang=js ***!
@@ -39304,6 +39754,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EmployeeDetailView_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EmployeeDetailView_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./EmployeeDetailView.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/views/EmployeeDetailView.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/views/EmployeeLogView.vue?vue&type=script&lang=js":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/views/EmployeeLogView.vue?vue&type=script&lang=js ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EmployeeLogView_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EmployeeLogView_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./EmployeeLogView.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/views/EmployeeLogView.vue?vue&type=script&lang=js");
  
 
 /***/ }),
@@ -39356,6 +39822,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/EmployeeEdit.vue?vue&type=template&id=158389c3":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/EmployeeEdit.vue?vue&type=template&id=158389c3 ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EmployeeEdit_vue_vue_type_template_id_158389c3__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EmployeeEdit_vue_vue_type_template_id_158389c3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./EmployeeEdit.vue?vue&type=template&id=158389c3 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EmployeeEdit.vue?vue&type=template&id=158389c3");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/views/EmployeeDetailView.vue?vue&type=template&id=4c4c3a10":
 /*!********************************************************************************************!*\
   !*** ./resources/js/components/views/EmployeeDetailView.vue?vue&type=template&id=4c4c3a10 ***!
@@ -39368,6 +39850,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EmployeeDetailView_vue_vue_type_template_id_4c4c3a10__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EmployeeDetailView_vue_vue_type_template_id_4c4c3a10__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./EmployeeDetailView.vue?vue&type=template&id=4c4c3a10 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/views/EmployeeDetailView.vue?vue&type=template&id=4c4c3a10");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/views/EmployeeLogView.vue?vue&type=template&id=22633502":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/views/EmployeeLogView.vue?vue&type=template&id=22633502 ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EmployeeLogView_vue_vue_type_template_id_22633502__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EmployeeLogView_vue_vue_type_template_id_22633502__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./EmployeeLogView.vue?vue&type=template&id=22633502 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/views/EmployeeLogView.vue?vue&type=template&id=22633502");
 
 
 /***/ }),
