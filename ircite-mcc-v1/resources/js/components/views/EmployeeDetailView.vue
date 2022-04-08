@@ -22,6 +22,9 @@
               <td>{{ employee.vacationLeaveCredits }}</td>
               <td>{{ employee.hourlyRate }}</td>
           </tr>
+          <tr>
+              <td> <router-link :to="{ name: 'employee' }"> <button class="btn-process"> Return to Employees List </button> </router-link></td>
+          </tr>
       </table>
   </div>
 </template>
@@ -37,7 +40,6 @@ export default {
 
         onMounted(() => {
             getEmployee(props.id)
-            console.log(props.id)
         })
 
         return { employee }

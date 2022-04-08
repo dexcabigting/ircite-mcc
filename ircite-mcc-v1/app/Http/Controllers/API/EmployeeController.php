@@ -31,9 +31,26 @@ class EmployeeController extends Controller
      */
     public function store(StoreEmployeeRequest $request)
     {
+        $newFirstName = $request->validated()['firstName'];
+        $newLastName = $request->validated()['lastName'];
+        
+        $employee = Employee::where('firstName', $newFirstName)->first();
+
+
+        if ($employee) {
+            $oldFullName = $employee->firstName . ' ' . $employee->lastName;
+
+            $newFullName = $newFirstName . ' ' . $newLastName;
+
+            if($oldFullName == $newFullName) {
+                return response()->json(['message' => 'Employee already exists'], 309);
+            }
+        } 
+
         $employee = Employee::create($request->validated());
 
         return (new EmployeeResource($employee))->response()->setStatusCode(200);
+        
     }
 
     /**
@@ -45,7 +62,7 @@ class EmployeeController extends Controller
     public function show(Employee $employee)
     {
         if (!$employee) {
-            return response(array('message' => 'Employee not found.', 404));
+            return response()->json(['message' => 'Employee not found.'], 404);
         } 
 
         return new EmployeeResource($employee);
@@ -83,6 +100,6 @@ class EmployeeController extends Controller
 
         $employee->delete();
 
-        return response(200);
+        return response([], 200);
     }
 }
