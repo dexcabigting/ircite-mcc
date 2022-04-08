@@ -49,4 +49,23 @@ class EmployeeControllerTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_if_update_endpoint_responds_201()
+    {
+        $employee = Employee::factory()->create();
+
+        $data = [
+            'firstName' => 'Shanti',
+            'lastName' => 'Dope',
+            'position' => 'Rapper',
+        ];
+
+        $response = $this->put('/api/management/employee/' . $employee->id, $data);
+
+        $this->assertDatabaseHas('employees', $data);
+
+        $this->assertDatabaseCount('employees', 1);
+
+        $response->assertStatus(200);
+    }
 }
