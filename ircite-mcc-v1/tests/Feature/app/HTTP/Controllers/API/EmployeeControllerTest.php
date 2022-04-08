@@ -13,7 +13,7 @@ class EmployeeControllerTest extends TestCase
      *
      * @return void
      */
-    public function test_if_show_endpoint_responds_200()
+    public function test_if_index_endpoint_responds_200()
     {
         $response = $this->get('/management/employee');
 
