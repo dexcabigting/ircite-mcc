@@ -21,7 +21,7 @@ class EmployeeControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_if_store_endpoint_responds_200()
+    public function test_if_store_endpoint_responds_201()
     {
         $data = [
             'firstName' => 'Pedro',
