@@ -16,7 +16,7 @@ class EmployeeControllerTest extends TestCase
      */
     public function test_if_index_endpoint_responds_200()
     {
-        $response = $this->get('/api/management/employee');
+        $response = $this->get('/management/employee');
 
         $response->assertStatus(200);
     }
@@ -32,7 +32,7 @@ class EmployeeControllerTest extends TestCase
             'hourlyRate' => 1000,
         ];
 
-        $response = $this->post('/api/management/employee', $data);
+        $response = $this->post('/management/employee', $data);
 
         $this->assertDatabaseHas('employees', ['firstName' => 'Pedro']);
 
@@ -54,7 +54,7 @@ class EmployeeControllerTest extends TestCase
 
         Employee::create($data);
 
-        $response = $this->post('/api/management/employee', $data);
+        $response = $this->post('/management/employee', $data);
 
         $response->assertStatus(309);
     }
@@ -63,14 +63,14 @@ class EmployeeControllerTest extends TestCase
     {
         $employee = Employee::factory()->create();
 
-        $response = $this->get('/api/management/employee/' . $employee->id);
+        $response = $this->get('/management/employee/' . $employee->id);
 
         $response->assertStatus(200);
     }
 
     public function test_if_show_endpoint_responds_404_on_missing_record()
     {
-        $response = $this->get('/api/management/employee/' . 5);
+        $response = $this->get('/management/employee/' . 5);
 
         $response->assertStatus(404);
     }
@@ -86,7 +86,7 @@ class EmployeeControllerTest extends TestCase
             'position' => 'Rapper',
         ];
 
-        $response = $this->put('/api/management/employee/' . $employee->id, $data);
+        $response = $this->put('/management/employee/' . $employee->id, $data);
 
         $this->assertDatabaseHas('employees', $data);
 
@@ -103,7 +103,7 @@ class EmployeeControllerTest extends TestCase
             'position' => 'Rapper',
         ];
 
-        $response = $this->put('/api/management/employee/' . 2, $data);
+        $response = $this->put('/management/employee/' . 2, $data);
 
         $response->assertStatus(404);
     }
@@ -112,7 +112,7 @@ class EmployeeControllerTest extends TestCase
     {
         $employee = Employee::factory()->create();
 
-        $response = $this->delete('/api/management/employee/' . $employee->id);
+        $response = $this->delete('/management/employee/' . $employee->id);
 
         $this->assertDatabaseCount('employees', 0);
 
@@ -121,7 +121,7 @@ class EmployeeControllerTest extends TestCase
 
     public function test_if_destroy_endpoint_responds_404_on_missing_record()
     {
-        $response = $this->delete('/api/management/employee/' . 4);
+        $response = $this->delete('/management/employee/' . 4);
 
         $response->assertStatus(404);
     }
