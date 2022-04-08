@@ -16,7 +16,7 @@ class EmployeeControllerTest extends TestCase
      */
     public function test_if_index_endpoint_responds_200()
     {
-        $response = $this->get('api/management/employee');
+        $response = $this->get('/api/management/employee');
 
         $response->assertStatus(200);
     }
@@ -32,7 +32,7 @@ class EmployeeControllerTest extends TestCase
             'hourlyRate' => 1000,
         ];
 
-        $response = $this->post('api/management/employee', $data);
+        $response = $this->post('/api/management/employee', $data);
 
         $this->assertDatabaseHas('employees', ['firstName' => 'Pedro']);
 
@@ -45,7 +45,7 @@ class EmployeeControllerTest extends TestCase
     {
         $employee = Employee::factory()->create();
 
-        $response = $this->get('api/management/employee' . $employee->id);
+        $response = $this->get('/api/management/employee/' . $employee->id);
 
         $response->assertStatus(200);
     }
