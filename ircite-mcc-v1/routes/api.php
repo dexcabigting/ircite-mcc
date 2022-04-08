@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::controller(EmployeePayrollController::class)->group(function () {
-    Route::post('management/employee/{id}/salary', 'calculatePayroll');
+    Route::post('management/employee/{employee}/salary', 'calculatePayroll');
 });
 
 Route::apiResource('management/employee', EmployeeController::class);
