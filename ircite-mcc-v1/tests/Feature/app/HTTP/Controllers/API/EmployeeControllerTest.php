@@ -13,9 +13,9 @@ class EmployeeControllerTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_if_show_endpoint_responds_200()
     {
-        $response = $this->get('/');
+        $response = $this->get('/management/employee');
 
         $response->assertStatus(200);
     }
