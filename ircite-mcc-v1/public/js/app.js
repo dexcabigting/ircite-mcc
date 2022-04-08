@@ -19553,12 +19553,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   setup: function setup(props, _ref) {
     var emit = _ref.emit;
     var formData = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      firstName: 'Mark',
+      firstName: 'Gold',
       lastName: 'Doe',
-      position: 'Accounting',
-      sickLeaveCredits: 4,
-      vacationLeaveCredits: 4,
-      hourlyRate: 1200
+      position: 'Treasurer',
+      sickLeaveCredits: 5,
+      vacationLeaveCredits: 5,
+      hourlyRate: 200
     });
 
     var closeModal = function closeModal() {
@@ -19775,11 +19775,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return saveEmployee(formData);
 
               case 2:
-                alert("Employee Added!");
                 getEmployees();
                 toggleEmpAddForm();
 
-              case 5:
+              case 4:
               case "end":
                 return _context2.stop();
             }
@@ -20627,19 +20626,22 @@ function useEmployee() {
 
             case 3:
               response = _context3.sent;
+              alert("Added Employee!");
+              getEmployees();
               return _context3.abrupt("return", response.data.data);
 
-            case 7:
-              _context3.prev = 7;
+            case 9:
+              _context3.prev = 9;
               _context3.t0 = _context3["catch"](0);
+              alert("Employee already has a record in the database.");
               console.log(_context3.t0.response.data);
 
-            case 10:
+            case 13:
             case "end":
               return _context3.stop();
           }
         }
-      }, _callee3, null, [[0, 7]]);
+      }, _callee3, null, [[0, 9]]);
     }));
 
     return function saveEmployee(_x2) {
@@ -20699,19 +20701,20 @@ function useEmployee() {
 
             case 3:
               response = _context5.sent;
+              getEmployees();
               return _context5.abrupt("return", response.data.data);
 
-            case 7:
-              _context5.prev = 7;
+            case 8:
+              _context5.prev = 8;
               _context5.t0 = _context5["catch"](0);
               console.log(_context5.t0.response.data);
 
-            case 10:
+            case 11:
             case "end":
               return _context5.stop();
           }
         }
-      }, _callee5, null, [[0, 7]]);
+      }, _callee5, null, [[0, 8]]);
     }));
 
     return function deleteEmployee(_x5) {

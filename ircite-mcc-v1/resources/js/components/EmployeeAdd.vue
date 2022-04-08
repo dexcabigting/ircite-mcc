@@ -32,12 +32,12 @@ export default {
     setup(props,{ emit }){
         const formData = reactive
         ({
-            firstName: 'Mark',
+            firstName: 'Gold',
             lastName: 'Doe',
-            position: 'Accounting',
-            sickLeaveCredits: 4,
-            vacationLeaveCredits: 4,
-            hourlyRate: 1200
+            position: 'Treasurer',
+            sickLeaveCredits: 5,
+            vacationLeaveCredits: 5,
+            hourlyRate: 200
         })
         const closeModal = () => {
             emit('closeForm')

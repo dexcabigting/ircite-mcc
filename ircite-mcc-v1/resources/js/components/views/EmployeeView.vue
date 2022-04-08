@@ -67,7 +67,6 @@ export default {
 
         const addEmployee = async (formData) => {
             await saveEmployee(formData)
-            alert("Employee Added!")
             getEmployees()
             toggleEmpAddForm()
         }

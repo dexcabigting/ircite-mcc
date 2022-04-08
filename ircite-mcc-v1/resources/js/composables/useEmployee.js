@@ -27,9 +27,12 @@ function useEmployee() {
     const saveEmployee = async (formData) => {
         try{     
             let response = await axios.post("/api/management/employee", formData)
+            alert("Added Employee!")
+            getEmployees()
             return response.data.data
         }
         catch(err){
+            alert("Employee already has a record in the database.")
             console.log(err.response.data)
         }
     }
@@ -53,6 +56,7 @@ function useEmployee() {
     const deleteEmployee = async (id) => {
         try{     
             let response = await axios.delete("/api/management/employee/" + id)
+            getEmployees()
             return response.data.data
         }
         catch(err){
