@@ -59,10 +59,12 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Employee $employee)
+    public function show($employee)
     {
+        $employee = Employee::find($employee);
+
         if (!$employee) {
-            return response()->json(['message' => 'Employee not found.'], 404);
+            return response()->json(['message' => 'Employee does not exist.'], 404);
         } 
 
         return new EmployeeResource($employee);
@@ -75,10 +77,12 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateEmployeeRequest $request, Employee $employee)
+    public function update(UpdateEmployeeRequest $request, $employee)
     {
+        $employee = Employee::find($employee);
+
         if (!$employee) {
-            return response(array('message' => 'Employee not found.', 404));
+            return response()->json(['message' => 'Employee does not exist'], 404);
         } 
 
         $employee->update($request->validated());
@@ -92,10 +96,12 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Employee $employee)
+    public function destroy($employee)
     {
+        $employee = Employee::find($employee);
+
         if (!$employee) {
-            return response(array('message' => 'Employee not found.', 404));
+            return response()->json(['message' => 'Employee does not exist'], 404);
         } 
 
         $employee->delete();
