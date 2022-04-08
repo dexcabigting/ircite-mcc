@@ -3,49 +3,52 @@ import axios from 'axios'
 
 function useEmployee() {
     
-    const employees = ref([{ 
-        id: 1,
-        firstName: 'Mark',
-        lastName: 'Doe',
-        position: 'Accounting',
-        sickLeaveCredits: 4,
-        vacationLeaveCredits: 4,
-        hourlyRate: 1200
-    }])
+    const employees = ref([])
     const employee = ref(null)
 
     const getEmployees = async () => {
         try {
-            employees.value = 
-            [{ 
-                id: 1,
-                firstName: 'Mark',
-                lastName: 'Doe',
-                position: 'Accounting',
-                sickLeaveCredits: 4,
-                vacationLeaveCredits: 4,
-                hourlyRate: 1200
-            }]
-        } catch (error) {
+            let response = await axios.get("/api/management/employee")
+            employees.value = response.data.data
+            console.log(employees.value)
+        }
+        catch (err){
             console.log(err.response.data)
         }
     }
     const getEmployee = async (id) => {
         try {
-            for(let emp in employees.value){
-                if (emp.id === id) {
-                    console.log(emp.id)
-                    employee.value = employee
-                }
-            }
-        } catch (error) {
+            let response = await axios.get("/api/management/employee/" + id)
+            employee.value = response.data.data
+        } 
+        catch (error) {
+            console.log(err.response.data)
+        }
+    }
+    const saveEmployee = async (formData) => {
+        try{     
+            let response = await axios.post("/api/management/employee", formData)
+            return response.data.data
+        }
+        catch(err){
+            console.log(err.response.data)
+        }
+    }
+
+    const deleteEmployee = async (id) => {
+        try{     
+            let response = await axios.delete("/api/management/employee/" + id)
+            return response.data.data
+        }
+        catch(err){
             console.log(err.response.data)
         }
     }
 
     return { 
         employees, getEmployees, 
-        employee, getEmployee 
+        employee, getEmployee,
+        saveEmployee, deleteEmployee
     }
 }
 
