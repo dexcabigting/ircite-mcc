@@ -67,12 +67,10 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Employee $employee)
     {
-        $employee = Employee::find($id);
-
         $employee->delete();
 
-        return response()->noContent();
+        return response(200);
     }
 }

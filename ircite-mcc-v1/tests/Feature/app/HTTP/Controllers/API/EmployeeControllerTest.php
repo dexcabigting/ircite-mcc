@@ -68,4 +68,17 @@ class EmployeeControllerTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_if_destroy_endpoint_responds_200()
+    {
+        $employee = Employee::factory()->create();
+
+        $response = $this->delete('/api/management/employee/' . $employee->id);
+
+        $this->assertDatabaseCount('employees', 0);
+
+        $response->assertStatus(200);
+    }
+
+    
 }
