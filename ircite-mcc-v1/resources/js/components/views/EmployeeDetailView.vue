@@ -1,8 +1,8 @@
 <template>
   <div class="employee-details">
       <table>
-          <tr colspan="7"> 
-              <th><h2> Employee Detail </h2> </th>
+          <tr> 
+              <th colspan="7"><h2> Employee Detail </h2> </th>
           </tr>
           <tr>
               <th>First Name</th>
@@ -23,7 +23,7 @@
               <td>{{ employee.hourlyRate }}</td>
           </tr>
           <tr>
-              <td> <router-link :to="{ name: 'employee' }"> <button class="btn-process"> Return to Employees List </button> </router-link></td>
+              <td colspan="7"> <router-link :to="{ name: 'employee' }"> <button class="btn-process"> Return to Employees List </button> </router-link></td>
           </tr>
       </table>
   </div>

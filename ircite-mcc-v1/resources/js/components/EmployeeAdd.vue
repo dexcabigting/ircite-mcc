@@ -10,11 +10,11 @@
                 <label> Position: </label>
                 <input type="text" name="position" required v-model="position">
                 <label> Sick leave credits: </label>
-                <input type="text" name="sickLeaveCredits" required v-model="sickLeaveCredits">
+                <input type="number" name="sickLeaveCredits" required v-model="sickLeaveCredits">
                 <label> Vacation Leave Credits: </label>
-                <input type="text" name="vacationLeaveCredits" required v-model="vacationLeaveCredits">
+                <input type="number" name="vacationLeaveCredits" required v-model="vacationLeaveCredits">
                 <label> Hourly Rate: </label>
-                <input type="text" name="hourlyRate" required v-model="hourlyRate">
+                <input type="number" name="hourlyRate" required v-model="hourlyRate">
                 <div class="employee-form-btn-wrapper">
                     <input type="submit" value="Add">
                     <input @click="closeModal" type="button" value="Cancel">
@@ -27,6 +27,7 @@
 <script>
 import { toRefs, reactive } from 'vue'
 export default {
+    props: [ "id" ],
     emits: [ 'closeForm', 'submitted' ],
     setup(props,{ emit }){
         const formData = reactive
@@ -68,7 +69,7 @@ export default {
         display: flex;
         flex-direction: column;
     }
-    .employee-add-form > input[type="text"]{
+    .employee-add-form > input[type="text"] .employee-add-form > input[type="number"]{
         height: 1.4rem;
         border-radius: 10px;
     }
@@ -77,7 +78,7 @@ export default {
         justify-content: space-evenly;
         margin-top: 10px;
     }
-    input[value="Add"]{
+    input[value="Add"], input[value="Update"]{
         padding: 1.4rem;
         background-color: var(--process-button);
         border-radius: 10px;

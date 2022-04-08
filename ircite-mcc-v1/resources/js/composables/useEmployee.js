@@ -10,7 +10,6 @@ function useEmployee() {
         try {
             let response = await axios.get("/api/management/employee")
             employees.value = response.data.data
-            console.log(employees.value)
         }
         catch (err){
             console.log(err.response.data)
@@ -22,7 +21,7 @@ function useEmployee() {
             employee.value = response.data.data
         } 
         catch (error) {
-            console.log(err.response.data)
+            console.log(error.response.data)
         }
     }
     const saveEmployee = async (formData) => {
@@ -31,6 +30,22 @@ function useEmployee() {
             return response.data.data
         }
         catch(err){
+            console.log(err.response.data)
+        }
+    }
+
+    const updateEmployee = async (id, formData) => {
+        try {
+            await axios.put("/api/management/employee/" + id, { 
+                firstName: formData.get('firstName'),
+                lastName: formData.get('lastName'),
+                position: formData.get('position'),
+                sickLeaveCredits: formData.get('sickLeaveCredits'),
+                vacationLeaveCredits: formData.get('vacationLeaveCredits'),
+                hourlyRate: formData.get('hourlyRate'),
+             })
+        } 
+        catch (err) {
             console.log(err.response.data)
         }
     }
@@ -48,7 +63,8 @@ function useEmployee() {
     return { 
         employees, getEmployees, 
         employee, getEmployee,
-        saveEmployee, deleteEmployee
+        saveEmployee, updateEmployee, 
+        deleteEmployee
     }
 }
 
