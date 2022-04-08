@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreEmployeeRequest;
+use App\Http\Requests\UpdateEmployeeRequest;
 use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Http\Resources\EmployeeResource;
@@ -27,9 +29,11 @@ class EmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreEmployeeRequest $request)
     {
-        //
+        $employee = Employee::create($request->validated());
+
+        return new EmployeeResource($employee);
     }
 
     /**
@@ -38,9 +42,9 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Employee $employee)
     {
-        return new EmployeeResource(Employee::find($id));
+        return new EmployeeResource($employee);
     }
 
     /**
@@ -50,9 +54,11 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateEmployeeRequest $request, Employee $employee)
     {
-        //
+        $employee->update($request->validated);
+
+        return new EmployeeResource($employee);
     }
 
     /**
