@@ -45,11 +45,12 @@ class EmployeeController extends Controller
             if($oldFullName == $newFullName) {
                 return response()->json(['message' => 'Employee already exists'], 309);
             }
-        } else {
-            $employee = Employee::create($request->validated());
+        } 
 
-            return (new EmployeeResource($employee))->response()->setStatusCode(200);
-        }
+        $employee = Employee::create($request->validated());
+
+        return (new EmployeeResource($employee))->response()->setStatusCode(200);
+        
     }
 
     /**
@@ -61,7 +62,7 @@ class EmployeeController extends Controller
     public function show(Employee $employee)
     {
         if (!$employee) {
-            return response(array('message' => 'Employee not found.', 404));
+            return response()->json(['message' => 'Employee not found.'], 404);
         } 
 
         return new EmployeeResource($employee);
@@ -99,6 +100,6 @@ class EmployeeController extends Controller
 
         $employee->delete();
 
-        return response(200);
+        return response([], 200);
     }
 }
