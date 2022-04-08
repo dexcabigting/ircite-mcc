@@ -44,7 +44,11 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        return new EmployeeResource($employee);
+        if (!$employee) {
+            return response(array('message' => 'Employee not found.', 404));
+        } else {
+            return new EmployeeResource($employee);
+        }   
     }
 
     /**
