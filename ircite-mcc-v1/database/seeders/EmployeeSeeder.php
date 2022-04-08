@@ -14,6 +14,15 @@ class EmployeeSeeder extends Seeder
      */
     public function run()
     {
-        Employee::factory()->count(5)->create();   
+        Employee::create([
+            'id' => 10000,
+            'firstName' => 'Gold',
+            'lastName' => 'Doe',
+            'position' => 'Treasurer',
+            'sickLeaveCredits' => 5,
+            'vacationLeaveCredits' =>5,
+            'hourlyRate' => 200
+        ]);
+        //Employee::factory()->count(5)->create();   
     }
 }
