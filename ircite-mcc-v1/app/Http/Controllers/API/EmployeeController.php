@@ -33,7 +33,7 @@ class EmployeeController extends Controller
     {
         $employee = Employee::create($request->validated());
 
-        return new EmployeeResource($employee);
+        return (new EmployeeResource($employee))->response()->setStatusCode(200);
     }
 
     /**
