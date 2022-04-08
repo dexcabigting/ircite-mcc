@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\EmployeeController;
+use App\Http\Controllers\API\EmployeePayrollController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,10 @@ use App\Http\Controllers\API\EmployeeController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::controller(EmployeePayrollController::class)->group(function () {
+    Route::post('management/employee/{id}/salary', 'calculatePayroll');
 });
 
 Route::apiResource('management/employee', EmployeeController::class);
