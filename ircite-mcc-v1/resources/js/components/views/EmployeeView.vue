@@ -1,8 +1,8 @@
 <template>
   <div class="employee-details">
       <table>
-          <tr colspan="8"> 
-              <th><h2> Employees List </h2> </th>
+          <tr> 
+              <th colspan="10"><h2> Employees List </h2> </th>
           </tr>
           <tr>
               <th>First Name</th>
@@ -12,6 +12,7 @@
               <th>Sick Leave Credits</th>
               <th>Vacation Leave Credits</th>
               <th>Hourly rate</th>
+              <th colspan="3">Actions</th>
           </tr>
           <tr v-for="employee in employees" :key="employee.id">
               <td>{{ employee.firstName }}</td>
@@ -21,31 +22,94 @@
               <td>{{ employee.sickLeaveCredits }}</td>
               <td>{{ employee.vacationLeaveCredits }}</td>
               <td>{{ employee.hourlyRate }}</td>
-              <td> <router-link :to="{ name: 'employee-details', params: { id: employee.id }}"> Details </router-link> </td>
+              <td> <router-link :to="{ name: 'employee-details', params: { id: employee.id }}"> <button class="act-button btn-process"> Details </button> </router-link> </td>
+              <td> <a @click="editEmployee(employee.id)"> <button class="act-button btn-process"> Edit </button> </a> </td>
+              <td> <a @click="removeEmployee(employee.id)"> <button class="act-button btn-hot"> Delete </button> </a> </td>
+          </tr>
+          <tr>
+              <td colspan="10"><button class="btn-process" @click="toggleEmpAddForm"> Add Employee </button></td>
           </tr>
       </table>
+      <div v-if="showEmpAddForm">
+        <EmployeeAdd @submitted="addEmployee" @closeForm="toggleEmpAddForm" />
+      </div>
+
   </div>
 </template>
 
 <script>
+import EmployeeAdd from '../EmployeeAdd.vue'
 import useEmployee from '../../composables/useEmployee'
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 
 export default {
+    components: { EmployeeAdd },
     setup() {
-        const { employees , getEmployees } = useEmployee()
+        const { employees , getEmployees, saveEmployee, deleteEmployee } = useEmployee()
+
+        const showEmpAddForm = ref(false)
 
         onMounted(() => {
             getEmployees()
         })
 
-        return { employees }
+        const toggleEmpAddForm = () => {
+            showEmpAddForm.value = !showEmpAddForm.value
+        }
+
+        const addEmployee = async (formData) => {
+            await saveEmployee(formData)
+            alert("Employee Added!")
+            getEmployees()
+            toggleEmpAddForm()
+        }
+
+        const editEmployee = (id) => {
+            console.log(id)
+        }
+
+        const removeEmployee = async (id) => {
+            await deleteEmployee(id)
+            alert("Employee removed")
+            getEmployees()
+        }
+
+        return { 
+            employees, 
+            toggleEmpAddForm,
+            showEmpAddForm,
+            addEmployee,
+            editEmployee,
+            removeEmployee
+        }
     }
 }
 </script>
 
 <style>
+    table{
+        margin: 0;
+        margin: 0 auto;
+        border: 1px solid black;
+    }
+
     td, th, h2 {
         text-align: center;
+        border: 1px solid black;
+        padding: 10px;
+    }
+
+    .act-button{
+        padding: 7px, 5px;
+        margin: 0 10px;
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+    }
+    .btn-process{
+        background: var(--process-button);
+    }
+    .btn-hot{
+        background: var(--hot-button);
     }
 </style>
