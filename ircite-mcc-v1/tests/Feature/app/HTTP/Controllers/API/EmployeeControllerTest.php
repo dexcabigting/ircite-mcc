@@ -80,5 +80,10 @@ class EmployeeControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    
+    public function test_if_destroy_endpoint_responds_404_on_missing_record()
+    {
+        $response = $this->delete('/api/management/employee/' . 4);
+
+        $response->assertStatus(404);
+    }
 }
