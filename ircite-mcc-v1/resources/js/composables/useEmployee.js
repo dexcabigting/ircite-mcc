@@ -8,7 +8,7 @@ function useEmployee() {
 
     const getEmployees = async () => {
         try {
-            let response = await axios.get("/api/management/employee")
+            let response = await axios.get("/management/employee")
             employees.value = response.data.data
         }
         catch (err){
@@ -17,7 +17,7 @@ function useEmployee() {
     }
     const getEmployee = async (id) => {
         try {
-            let response = await axios.get("/api/management/employee/" + id)
+            let response = await axios.get("/management/employee/" + id)
             employee.value = response.data.data
         } 
         catch (error) {
@@ -26,7 +26,7 @@ function useEmployee() {
     }
     const saveEmployee = async (formData) => {
         try{     
-            let response = await axios.post("/api/management/employee", formData)
+            let response = await axios.post("/management/employee", formData)
             alert("Added Employee!")
             getEmployees()
             return response.data.data
@@ -39,7 +39,7 @@ function useEmployee() {
 
     const updateEmployee = async (id, formData) => {
         try {
-            await axios.put("/api/management/employee/" + id, { 
+            await axios.put("/management/employee/" + id, { 
                 firstName: formData.get('firstName'),
                 lastName: formData.get('lastName'),
                 position: formData.get('position'),
@@ -55,7 +55,7 @@ function useEmployee() {
 
     const deleteEmployee = async (id) => {
         try{     
-            let response = await axios.delete("/api/management/employee/" + id)
+            let response = await axios.delete("/management/employee/" + id)
             getEmployees()
             return response.data.data
         }

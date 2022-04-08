@@ -25,7 +25,7 @@
               <td> <a @click="removeEmployee(employee.id)"> <button class="act-button btn-hot"> Delete </button> </a> </td>
           </tr>
           <tr>
-              <td colspan="10"> <button class="btn-process" @click="toggleEmpAddForm"> Add Employee </button> </td>
+              <td colspan="10"> <button class="act-button btn-process" @click="toggleEmpAddForm"> Add Employee </button> </td>
           </tr>
       </table>
       <div v-if="showEmpAddForm">

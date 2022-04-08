@@ -20383,7 +20383,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }), 128
   /* KEYED_FRAGMENT */
   )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    "class": "btn-process",
+    "class": "act-button btn-process",
     onClick: _cache[0] || (_cache[0] = function () {
       return $setup.toggleEmpAddForm && $setup.toggleEmpAddForm.apply($setup, arguments);
     })
@@ -20552,7 +20552,7 @@ function useEmployee() {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/management/employee");
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/management/employee");
 
             case 3:
               response = _context.sent;
@@ -20587,7 +20587,7 @@ function useEmployee() {
             case 0:
               _context2.prev = 0;
               _context2.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/management/employee/" + id);
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/management/employee/" + id);
 
             case 3:
               response = _context2.sent;
@@ -20622,7 +20622,7 @@ function useEmployee() {
             case 0:
               _context3.prev = 0;
               _context3.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/management/employee", formData);
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/management/employee", formData);
 
             case 3:
               response = _context3.sent;
@@ -20657,7 +20657,7 @@ function useEmployee() {
             case 0:
               _context4.prev = 0;
               _context4.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().put("/api/management/employee/" + id, {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().put("/management/employee/" + id, {
                 firstName: formData.get('firstName'),
                 lastName: formData.get('lastName'),
                 position: formData.get('position'),
@@ -20697,7 +20697,7 @@ function useEmployee() {
             case 0:
               _context5.prev = 0;
               _context5.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]("/api/management/employee/" + id);
+              return axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]("/management/employee/" + id);
 
             case 3:
               response = _context5.sent;
@@ -20764,16 +20764,16 @@ var routes = [{
   name: 'home',
   component: _components_views_HomeView_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
 }, {
-  path: '/management/employee/:id',
+  path: '/view/management/employee/:id',
   name: 'employee-details',
   component: _components_views_EmployeeDetailView_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
   props: true
 }, {
-  path: '/management/employee',
+  path: '/view/management/employee',
   name: 'employee',
   component: _components_views_EmployeeView_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
 }, {
-  path: '/management/employee/:id/log',
+  path: '/view/management/employee/:id/log',
   name: 'employee-log',
   component: _components_views_EmployeeLogView_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
   props: true

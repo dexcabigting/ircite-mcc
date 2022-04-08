@@ -11,18 +11,18 @@ const routes = [
         component: HomeView
     },
     {
-        path: '/management/employee/:id',
+        path: '/view/management/employee/:id',
         name: 'employee-details',
         component: EmployeeDetailView,
         props: true
     },
     {
-        path: '/management/employee',
+        path: '/view/management/employee',
         name: 'employee',
         component: EmployeeView,
     },
     {
-        path: '/management/employee/:id/log',
+        path: '/view/management/employee/:id/log',
         name: 'employee-log',
         component: EmployeeLogView,
         props: true
