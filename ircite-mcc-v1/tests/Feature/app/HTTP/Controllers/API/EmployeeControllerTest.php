@@ -50,7 +50,15 @@ class EmployeeControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_if_update_endpoint_responds_201()
+    public function test_if_show_endpoint_responds_404_on_missing_record()
+    {
+        $response = $this->get('/api/management/employee/' . 5);
+
+        $response->assertStatus(404);
+    }
+
+
+    public function test_if_update_endpoint_responds_200()
     {
         $employee = Employee::factory()->create();
 
@@ -67,6 +75,19 @@ class EmployeeControllerTest extends TestCase
         $this->assertDatabaseCount('employees', 1);
 
         $response->assertStatus(200);
+    }
+
+    public function test_if_update_endpoint_responds_404_on_missing_record()
+    {
+        $data = [
+            'firstName' => 'Shanti',
+            'lastName' => 'Dope',
+            'position' => 'Rapper',
+        ];
+
+        $response = $this->put('/api/management/employee/' . 2, $data);
+
+        $response->assertStatus(404);
     }
 
     public function test_if_destroy_endpoint_responds_200()
