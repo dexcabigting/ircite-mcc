@@ -31,9 +31,25 @@ class EmployeeController extends Controller
      */
     public function store(StoreEmployeeRequest $request)
     {
-        $employee = Employee::create($request->validated());
+        $newFirstName = $request->validated()['firstName'];
+        $newLastName = $request->validated()['lastName'];
+        
+        $employee = Employee::where('firstName', $newFirstName)->first();
 
-        return (new EmployeeResource($employee))->response()->setStatusCode(200);
+
+        if ($employee) {
+            $oldFullName = $employee->firstName . ' ' . $employee->lastName;
+
+            $newFullName = $newFirstName . ' ' . $newLastName;
+
+            if($oldFullName == $newFullName) {
+                return response()->json(['message' => 'Employee already exists'], 309);
+            }
+        } else {
+            $employee = Employee::create($request->validated());
+
+            return (new EmployeeResource($employee))->response()->setStatusCode(200);
+        }
     }
 
     /**
