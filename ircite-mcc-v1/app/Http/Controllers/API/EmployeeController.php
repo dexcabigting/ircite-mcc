@@ -40,7 +40,7 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        //
+        return new EmployeeResource(Employee::find($id));
     }
 
     /**
