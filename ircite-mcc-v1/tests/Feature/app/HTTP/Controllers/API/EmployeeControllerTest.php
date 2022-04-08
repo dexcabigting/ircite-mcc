@@ -41,6 +41,24 @@ class EmployeeControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function test_if_store_endpoint_responds_on_duplicate_record()
+    {
+        $data = [
+            'firstName' => 'Pedro',
+            'lastName' => 'Batumbakal',
+            'position' => 'Supervisor',
+            'sickLeaveCredits' => 2,
+            'vacationLeaveCredits' => 2,
+            'hourlyRate' => 1000,
+        ];
+
+        Employee::create($data);
+
+        $response = $this->post('/api/management/employee', $data);
+
+        $response->assertStatus(309);
+    }
+
     public function test_if_show_endpoint_responds_200()
     {
         $employee = Employee::factory()->create();
