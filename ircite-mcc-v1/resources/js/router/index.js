@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../components/views/HomeView.vue'
 import EmployeeView from '../components/views/EmployeeView.vue'
 import EmployeeDetailView from '../components/views/EmployeeDetailView.vue'
+import EmployeeLogView from '../components/views/EmployeeLogView.vue'
 
 const routes = [
     {
@@ -19,6 +20,12 @@ const routes = [
         path: '/management/employee',
         name: 'employee',
         component: EmployeeView,
+    },
+    {
+        path: '/management/employee/:id/log',
+        name: 'employee-log',
+        component: EmployeeLogView,
+        props: true
     }
 ]
 
