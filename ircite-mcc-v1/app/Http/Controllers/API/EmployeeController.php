@@ -46,9 +46,9 @@ class EmployeeController extends Controller
     {
         if (!$employee) {
             return response(array('message' => 'Employee not found.', 404));
-        } else {
-            return new EmployeeResource($employee);
-        }   
+        } 
+
+        return new EmployeeResource($employee);
     }
 
     /**
@@ -60,9 +60,13 @@ class EmployeeController extends Controller
      */
     public function update(UpdateEmployeeRequest $request, Employee $employee)
     {
+        if (!$employee) {
+            return response(array('message' => 'Employee not found.', 404));
+        } 
+
         $employee->update($request->validated());
 
-        return new EmployeeResource($employee);
+        return new EmployeeResource($employee); 
     }
 
     /**
@@ -73,6 +77,10 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
+        if (!$employee) {
+            return response(array('message' => 'Employee not found.', 404));
+        } 
+
         $employee->delete();
 
         return response(200);
